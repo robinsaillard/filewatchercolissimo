@@ -9,9 +9,24 @@ namespace FileSystemWatcherSample
 {
     class Program
     {
-       
+        const Int32 SW_MINIMIZE = 6;
+
+        [DllImport("Kernel32.dll", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        private static extern IntPtr GetConsoleWindow();
+
+        [DllImport("User32.dll", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool ShowWindow([In] IntPtr hWnd, [In] Int32 nCmdShow);
+
+        private static void MinimizeConsoleWindow()
+        {
+            IntPtr hWndConsole = GetConsoleWindow();
+            ShowWindow(hWndConsole, SW_MINIMIZE);
+        }
+
         static void Main(string[] args)
         {
+            MinimizeConsoleWindow();
             // Nouvelle instance De FileWatcher
             var fileSystemWatcher = new FileSystemWatcher();
 
@@ -37,7 +52,7 @@ namespace FileSystemWatcherSample
             fileSystemWatcher.EnableRaisingEvents = true;
 
 
-            fileSystemWatcher.Filter = "exportColissimo.csv";
+            fileSystemWatcher.Filter = "exportColissimo*.csv";
             ForegroundColor = White;
             WriteLine("----- File Manager Colissimo ----- ");
             WriteLine($"Path source CSV: {fileSystemWatcher.Path}");
@@ -53,14 +68,17 @@ namespace FileSystemWatcherSample
             string targetPath = KnownFolders.GetPath(KnownFolder.Documents);
             string pathString = System.IO.Path.Combine(targetPath, "colissimoFile");
             string dir = System.IO.Path.Combine(pathString, fileName);
-            if (!Directory.Exists(path))
+            if (File.Exists(path))
             {
-                Directory.Move(fullpath, dir);
+                if (File.Exists(dir))
+                {
+                    File.Delete(dir);
+                }
+                Directory.Move(path, dir);
             }
             else
             {
-                Directory.Move(fullpath, dir);
-                
+                WriteLine($"Aucun fichier à déplacer");
             }
                 
         }
@@ -101,9 +119,6 @@ namespace FileSystemWatcherSample
             DateTimeTotay();
             ForegroundColor = Green;
             WriteLine($"Le fichier a changé - {e.Name}");
-            DeplacerFichier(e.FullPath, e.Name);
-            ForegroundColor = Green;
-            WriteLine($"Fichier {e.Name} déplacé");
         }
 
         private static void FileSystemWatcher_Created(object sender, FileSystemEventArgs e)

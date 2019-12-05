@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v3.1": {
       "fileManagerColissimo/1.0.0": {
         "dependencies": {
-          "MiniFSWatcher": "0.1.5",
           "System.Security.Permissions": "4.7.0"
         },
         "runtime": {
@@ -32,14 +31,6 @@
             "assetType": "runtime",
             "assemblyVersion": "4.0.2.0",
             "fileVersion": "4.700.19.56404"
-          }
-        }
-      },
-      "MiniFSWatcher/0.1.5": {
-        "runtime": {
-          "lib/net45/MiniFSWatcher.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -128,13 +119,6 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
-    },
-    "MiniFSWatcher/0.1.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3f51ENccYeuAolQsAWGzzSFW0b4FS90olQlKSNtIs9o0WlaxW3Tdrp6OkoUYVpf+9krw+beuFSQDzZl9rZ0SIA==",
-      "path": "minifswatcher/0.1.5",
-      "hashPath": "minifswatcher.0.1.5.nupkg.sha512"
     },
     "System.Drawing.Common/4.7.0": {
       "type": "package",

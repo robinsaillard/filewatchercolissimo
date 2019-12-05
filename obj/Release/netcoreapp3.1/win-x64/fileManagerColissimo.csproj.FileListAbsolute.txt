@@ -233,3 +233,4 @@ C:\Users\Chef de Projet\Desktop\fileManagerColissimo\obj\Release\netcoreapp3.1\w
 C:\Users\Chef de Projet\Desktop\fileManagerColissimo\obj\Release\netcoreapp3.1\win-x64\fileManagerColissimo.csproj.CopyComplete
 C:\Users\Chef de Projet\Desktop\fileManagerColissimo\obj\Release\netcoreapp3.1\win-x64\fileManagerColissimo.dll
 C:\Users\Chef de Projet\Desktop\fileManagerColissimo\obj\Release\netcoreapp3.1\win-x64\fileManagerColissimo.pdb
+C:\Users\Chef de Projet\Desktop\fileManagerColissimo\obj\Release\netcoreapp3.1\win-x64\fileManagerColissimo.csprojAssemblyReference.cache
